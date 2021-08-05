@@ -1,0 +1,109 @@
+<h1>cập nhật Sinh vien</h1>
+
+<form [formGroup]="editForm" (ngSubmit)="update(id)">
+  <input type="hidden" formControlName="id">
+
+  <table>
+    <tr>
+      <td>Ma benh an:</td>
+      <td><input style="background: #a9a9a9" formControlName="maBenhAn" readonly></td>
+    </tr>
+    <tr>
+      <td>Ma benh nhan:</td>
+      <td><input style="background: #a9a9a9" formControlName="maBenhNhan" readonly></td>
+    </tr>
+
+    <tr>
+      <td>Ten benh nhan :</td>
+      <td><input type="text" formControlName="ten"></td>
+      <td>
+        <div *ngIf="!editForm.get('ten').valid && (editForm.get('ten').dirty ||editForm.get('ten').touched)">
+          <div [hidden]="!editForm.get('ten').errors.required">
+            <span>vui lòng nhập vào!!!</span>
+          </div>
+          <div [hidden]="!editForm.get('ten').errors.pattern">
+            <span>nhập sai vui lòng lại!!</span>
+          </div>
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Ngay vao vien</td>
+      <td><input type="date" formControlName="ngayVao"></td>
+      <td>
+        <div
+          *ngIf="!editForm.get('ngayVao').valid && (editForm.get('ngayVao').dirty ||editForm.get('ngayVao').touched)">
+          <div [hidden]="!editForm.get('ngayVao').errors.required">
+            <span>vui lòng nhập vào!!!</span>
+          </div>
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Ngay ra vien</td>
+      <td><input type="date" formControlName="ngayRa"></td>
+      <td>
+        <div
+          *ngIf="!editForm.get('ngayRa').valid && (editForm.get('ngayRa').dirty ||editForm.get('ngayRa').touched)">
+          <div [hidden]="!editForm.get('ngayRa').errors.required">
+            <span>vui lòng nhập vào!!!</span>
+          </div>
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Li do</td>
+      <td><input formControlName="liDo"></td>
+      <td>
+        <div
+          *ngIf="!editForm.get('liDo').valid && (editForm.get('liDo').dirty ||editForm.get('liDo').touched)">
+          <div [hidden]="!editForm.get('liDo').errors.required">
+            <span>vui lòng nhập vào!!!</span>
+          </div>
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Phuong phap dieu tri</td>
+      <td><input type="text" formControlName="phuongPhap"></td>
+      <td>
+        <div
+          *ngIf="!editForm.get('phuongPhap').valid && (editForm.get('phuongPhap').dirty ||editForm.get('phuongPhap').touched)">
+          <div [hidden]="!editForm.get('phuongPhap').errors.required">
+            <span>vui lòng nhập vào!!!</span>
+          </div>
+        </div>
+      </td>
+    </tr>
+
+
+    <tr>
+      <td>Bac si dieu tri:</td>
+      <td>
+        <select formControlName="bacSi" class="form-control" [compareWith]="compareFn">
+          <option *ngFor="let c of bacSis" [ngValue]="c" selected>{{c.ten}}</option>
+        </select>
+      </td>
+      <td>
+        <div *ngIf="!editForm.get('bacSi').valid && (editForm.get('bacSi').dirty ||editForm.get('bacSi').touched)">
+          <div [hidden]="!editForm.get('bacSi').errors.required">
+            <span>vui lòng chọn Lop</span>
+          </div>
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td>
+        <button style="margin: 10px"  [disabled]="!editForm.valid">update</button>
+        <button><a routerLink="/">back to list</a></button>
+      </td>
+    </tr>
+  </table>
+</form>
+

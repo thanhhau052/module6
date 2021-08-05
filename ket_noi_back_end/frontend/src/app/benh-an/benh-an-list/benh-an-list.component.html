@@ -1,0 +1,32 @@
+<h1 class="text-center">Danh sách benh nhan</h1>
+<br>
+<table class="table table-bordered">
+  <tr class="text-center">
+    <th>STT</th>
+    <th>Mã bệnh án </th>
+    <th>Mã bệnh nhân</th>
+    <th>Tên  bệnh nhân</th>
+    <th>Ngày vào viện</th>
+    <th>Ngày ra viện</th>
+    <th>Lí do</th>
+    <th>Phương pháp điều trị </th>
+    <th>Bác sĩ điều trị</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+
+  <tr *ngFor="let benhNhan of benhNhans | paginate: {currentPage :p,itemsPerPage: 2} ; index as i" class="text-center">
+    <td>{{p * 2 + i - 1}}</td>
+    <td>{{benhNhan.maBenhAn}}</td>
+    <td>{{benhNhan.maBenhNhan}}</td>
+    <td>{{benhNhan.ten}}</td>
+    <td>{{benhNhan.ngayVao}}</td>
+    <td>{{benhNhan.ngayRa}}</td>
+    <td>{{benhNhan.liDo}}</td>
+    <td>{{benhNhan.phuongPhap}}</td>
+    <td>{{benhNhan.bacSi.ten}}</td>
+    <td><button class="btn btn-outline-secondary"><a [routerLink]="['/edit',benhNhan.id]">Edit</a></button></td>
+    <td><button class="btn btn-outline-secondary"><a (click)="onDeleteHandler(benhNhan)">Delete</a></button></td>
+  </tr>
+</table>
+<pagination-controls (pageChange)="p = $event" class="text-center"></pagination-controls>

@@ -1,0 +1,46 @@
+{
+  "bac-si": [
+    {
+      "id": 1,
+      "ten": "Bac si A"
+    },
+    {
+      "id": 2,
+      "ten": "Bac si B"
+    },
+    {
+      "id": 3,
+      "ten": "Bac si C"
+    }
+  ],
+  "benh-nhan": [
+    {
+      "id": 3,
+      "maBenhAn": "BA-0022",
+      "maBenhNhan": "BN-0021",
+      "ten": "Nguyen Van E",
+      "ngayVao": "2020-10-11",
+      "ngayRa": "2021-11-05",
+      "liDo": "Benh tieu duong",
+      "phuongPhap": "Tiem",
+      "bacSi": {
+        "id": 2,
+        "ten": "Bac si B"
+      }
+    },
+    {
+      "id": 4,
+      "maBenhAn": "BA-1111",
+      "maBenhNhan": "BN-1111",
+      "ten": "Nguyen Van D",
+      "ngayVao": "2020-10-11",
+      "ngayRa": "2021-11-05",
+      "liDo": "Benh tieu duong",
+      "phuongPhap": "Tiem",
+      "bacSi": {
+        "id": 2,
+        "ten": "Bac si B"
+      }
+    }
+  ]
+}
