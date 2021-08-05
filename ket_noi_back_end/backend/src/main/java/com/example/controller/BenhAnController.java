@@ -19,7 +19,7 @@ import java.util.List;
 public class BenhAnController {
     @Autowired
     IBenhAnService benhAnService;
-    @GetMapping("/")
+    @GetMapping("/list")
     public ResponseEntity<List<BenhAn>> showBenhAn(){
         List<BenhAn> benhAnList=benhAnService.findAll();
         if(benhAnList.isEmpty()){
@@ -27,5 +27,11 @@ public class BenhAnController {
         }else {
             return new ResponseEntity<>(benhAnList,HttpStatus.OK);
         }
+    }
+
+
+    @GetMapping
+    public  ResponseEntity<List<BenhAn>> editBenhAn(){
+        return  null;
     }
 }
